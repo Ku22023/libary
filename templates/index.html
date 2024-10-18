@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FlaskTest</title>
+    <!--This is how we link to our CSS file in our static folder-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}"> 
+</head>
+ 
+<body>
+    <ul id="navbar">
+        <li class="navitem"><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" id="logo"/></a></li>
+        <li class="navitem"><a id="navtext" href="{{ url_for('index') }}">Libraria</a></li>
+
+        <li class="navright"><a href="{{ url_for('index') }}">Login</a></li>
+    </ul>
+    <h2 class="homeHeader">Welcome To My Homepage</h2>
+    <h4 class="homeDetails">Flask: Rendering Templates</h4>
+
+{% block body %}
+
+<p>This is a Flask application.</p>
+
+ 
+{% endblock %}
+ 
+ 
+</body>
+</html>

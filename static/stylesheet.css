@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+}
+
+
+#navbar {
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #5A975A;
+    
+    margin: 0px;
+    padding: 0px;
+    height: 40px;
+}
+
+.navitem {
+    float: left;
+  }
+
+.navright {
+    float: right;
+    padding-right: 15px;
+}  
+
+#logo {
+    float: left;
+    width: 40px;
+    height: 20px;
+    margin: 0px;
+    padding: 0px; 
+    object-fit: cover;  
+    overflow: visible;
+}
+
+
+a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 20px;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+a:hover { /* Makes site more responsive by changing underline and background colour. */
+    text-decoration: underline;
+    background-color: #111;
+} 
