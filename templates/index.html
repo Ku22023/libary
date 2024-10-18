@@ -14,12 +14,15 @@
 
         <li class="navright"><a href="{{ url_for('index') }}">Login</a></li>
     </ul>
-    <h2 class="homeHeader">Welcome To My Homepage</h2>
-    <h4 class="homeDetails">Flask: Rendering Templates</h4>
+
+<div id="best">
+    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='banner.png') }}" id="banner"/></a>
+    <h2>Libraria:</h2>
+    <h4>The Worlds best book Database</h4>
+</div>
+
 
 {% block body %}
-
-<p>This is a Flask application.</p>
 
  
 {% endblock %}

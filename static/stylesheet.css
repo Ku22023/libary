@@ -33,7 +33,7 @@ body {
 }
 
 
-a {
+#navitem a {
     display: block;
     color: white;
     text-align: center;
@@ -43,7 +43,16 @@ a {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
 
-a:hover { /* Makes site more responsive by changing underline and background colour. */
+#navitem a:hover { /* Makes site more responsive by changing underline and background colour. */
     text-decoration: underline;
     background-color: #111;
 } 
+
+#best {
+    height: 100px;
+}
+
+#banner {
+    width: 100%;
+    overflow: hidden;
+}
