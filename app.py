@@ -24,7 +24,7 @@ def init_db():
 @app.route('/add_book', methods=('GET', 'POST'))
 def add_game():
     conn = get_db_connection()
-    book = conn.execute('SELECT * FROM Library  ').fetchone()
+    book = conn.execute('SELECT * FROM Library ').fetchone()
 
     if request.method == 'POST':
         id = request.form['id']
