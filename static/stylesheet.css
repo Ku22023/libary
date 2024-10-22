@@ -18,10 +18,7 @@ body {
     float: left;
   }
 
-.navright {
-    float: right;
-    padding-right: 15px;
-}  
+
 
 #logo {
     float: left;
@@ -50,9 +47,29 @@ body {
 }
 
 
-#best {
+#banner {
     height: 150px;
     background-image: url('banner.png');
 
 
 }
+
+#search {
+    margin-left: 500px;
+    width: 22%;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: white;
+}
+
+.searchicon {
+    background: url("magnify.png") no-repeat right;
+    background-size: 30px;
+    margin-right: 100px;
+  }
+
+.navright {
+    float: right;
+    padding-right: 15px;
+    size: 5px;
+}  

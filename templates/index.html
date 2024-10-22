@@ -12,10 +12,11 @@
         <li class="navitem"><a id="navtext" href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}" id="logo"/></a></li>
         <li class="navitem"><a id="navtext" href="{{ url_for('index') }}">Libraria</a></li>
 
-        <li class="navright"><a href="{{ url_for('index') }}">Login</a></li>
+        <input id="search" class="searchicon" type="text" placeholder="Search for a book...">
+        <li class="navright"><a href="{{ url_for('index') }}"><img id="addbook" src="{{ url_for('static', filename='addbook.png') }}" /></a></li>
     </ul>
 
-<div id="best">
+<div id="banner">
     <h2>Libraria:</h2>  
     <h4>The Worlds best book Database</h4>
 </div>
