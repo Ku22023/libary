@@ -13,17 +13,26 @@
         <li class="navitem"><a id="navtext" href="{{ url_for('index') }}">Libraria</a></li>
 
         <input id="search" class="searchicon" type="text" placeholder="Search for a book...">
-        <li class="navright"><a href="{{ url_for('index') }}"><img id="addbook" src="{{ url_for('static', filename='addbook.png') }}" /></a></li>
+        <li class="navright"><a id="navtext" href="{{ url_for('index') }}"><img id="addbook" src="{{ url_for('static', filename='addbook.png') }}" /></a></li>
     </ul>
 
 <div id="banner">
-    <h2>Libraria:</h2>  
-    <h4>The Worlds best book Database</h4>
+    <h4 class="bannertext">Libraria:</h4>  
+    <h4 class="bannertext">The Worlds best book Database</h4>
 </div>
 
 
+<div class="bottombar"></div>
+
 {% block body %}
 
+<div id="newbooks">
+    <table>
+        <h2 id="largenew" >Newly Added</h2>
+        <h4 id="smallnew" >View all...</h4>
+    </table>
+
+</div>
  
 {% endblock %}
  
