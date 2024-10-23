@@ -46,14 +46,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
 }
 
-
-#banner {
-    height: 150px;
-    background-image: url('banner.png');
-
-
-}
-
 #search {
     margin-left: 500px;
     width: 22%;
@@ -71,5 +63,16 @@ body {
 .navright {
     float: right;
     padding-right: 15px;
-    size: 5px;
-}  
+
+} 
+
+
+#banner {
+    margin: 0px;
+    height: 150px;
+    text-align: center;
+    background-image: url('banner.png');
+
+
+}
+
