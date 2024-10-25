@@ -13,8 +13,10 @@
         <li class="navitem"><a id="navtext" href="{{ url_for('index') }}">Libraria</a></li>
 
         <input id="search" class="searchicon" type="text" placeholder="Search for a book...">
-        <li class="navright"><a id="navtext" href="{{ url_for('index') }}"><img id="addbook" src="{{ url_for('static', filename='addbook.png') }}" /></a></li>
+        <li class="navright"><a id="navtext" href="{{ url_for('newbook') }}"><img id="addbook" src="{{ url_for('static', filename='addbook.png') }}" /></a></li>
     </ul>
+
+{% block body %}
 
 <div id="banner">
     <h4 class="bannertext">Libraria:</h4>  
@@ -24,18 +26,32 @@
 
 <div class="bottombar"></div>
 
-{% block body %}
 
-<div id="newbooks">
-    <table>
-        <h2 id="largenew" >Newly Added</h2>
-        <h4 id="smallnew" >View all...</h4>
-    </table>
 
+<div id="category">
+    <h2 id="largetext">Editors Picks</h2>
+    <h4 id="smalltext">View all...</h4>
 </div>
  
-{% endblock %}
- 
+<div class="bottombar"></div>   
+
+<div id="category">
+    <h2 id="largetext">Best Reviews</h2>
+    <h4 id="smalltext">View all...</h4>
+</div>
+
+<div class="bottombar"></div>   
+
+<div id="choose">
+    <h2 class="box">View All Books</h2>
+    <h2 class="box">View All Genres</h2>
+    <h2 class="box">View All Categories</h2>
+
+</div>
+
  
 </body>
 </html>
+
+{% endblock %}
+ 

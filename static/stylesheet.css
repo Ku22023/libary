@@ -38,17 +38,20 @@
 
 #navtext {
     display: block;
-    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    color: black;
     text-align: center;
     padding-top: 10px;
     padding-left: 20px;
     text-decoration: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+    font-weight: bold;
+    font-size: large                                ;
+      
 }
 
 #search {
     margin-top: 3px;
-    margin-left: 500px;
+    margin-left: 600px;
     width: 22%;
     border-radius: 20px;
     padding: 10px;
@@ -100,7 +103,25 @@
     background-color: #5A975A;
 }
 
-#newbooks {
+#category {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    height: 300px;
+}
+
+#choose {
+    height: 150px;
+}
+
+.box {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: inline-start;
+    background-color: #B2F39E;
+    width: 340px;
+    height: 90px;
+    margin-left: 225px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-top: 80px;
 }

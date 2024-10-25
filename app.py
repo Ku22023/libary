@@ -10,6 +10,10 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
+@app.route('/newbook')
+def newbook():
+    return render_template("newbook.html")
+
 def get_db_connection():
     conn = sqlite3.connect('books.db')
     conn.row_factory = sqlite3.Row
@@ -21,30 +25,30 @@ def init_db():
         conn.executescript (f.read().decode('utf8'))
     conn.close()
 
-@app.route('/add_book', methods=('GET', 'POST'))
+@app.route('/newbook', methods=('GET', 'POST'))
 def add_game():
     conn = get_db_connection()
-    book = conn.execute('SELECT * FROM Library ').fetchone()
+    book = conn.execute('SELECT * FROM Library').fetchone()
 
     if request.method == 'POST':
-        id = request.form['id']
         title = request.form['title']
-        platform = request.form['platform']
+        author = request.form['author']
         genre = request.form['genre']
-        year = request.form['year']
-        sales = request.form['sales']
+        category = request.form['category']
+        review = request.form['review']
+        description = request.form['description']
 
 
-        if not id or not title or not platform or not genre or not year or not sales: 
+        if not title or not author or not genre or not category or not review or not description:
             flash('All fields are required!')
         else:
-            conn.execute('INSERT INTO games (id, title, platform, genre, year, sales) VALUES (id = ? title = ?, platform = ?, genre = ?, year = ?, sales = ?)',
+            conn.execute('INSERT INTO library (id, title, platform, genre, year, sales) VALUES (id = ? title = ?, platform = ?, genre = ?, year = ?, sales = ?)',
                 (id, title, platform, genre, year, sales))
             conn.commit()
             conn.close()
-            return render_template('add_games.html')
+            return render_template('newbook.html')
             
-    return render_template('add_games.html')
+    return render_template('newbook.html')
 
 @app.route('/login', methods=('POST', 'GET'))
 def login():

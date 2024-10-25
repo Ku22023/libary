@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+
+{% block body %}
+<form method="post" class="login">
+    <label for="text">Username: </label>
+    <input type="text" name="username" id="username" required>
+    <label for="text">PIN: </label>
+    <input type="text" name="pin" id="pin" required>
+    <button type="submit">Login</button>
+</form>
+
+
+{% endblock %}
