@@ -119,9 +119,73 @@
     float: inline-start;
     background-color: #B2F39E;
     width: 340px;
-    height: 90px;
+    height: 180px;
     margin-left: 225px;
     text-align: center;
+    justify-content: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 80px;
+}
+
+.info {
+    margin-left: 50px;
+    font-size: x-large;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.input {
+    margin-bottom: 20px;    
+    background-color: lightgray;
+    height: 25px;
+}
+
+#intitle {
+    width: 250px;
+}
+
+#inauthour {
+    width: 212px;
+}
+
+#ingenre {
+    width: 233px;
+}
+
+#incategory {
+    width: 200px;
+}
+
+#inrating {
+    width: 230px;
+}
+
+#indescription {
+    width: 180px;
+    height: 100px;   
+}
+
+
+#nbheader {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#image {
+    float: right;
+    margin-right: 50px;
+    width: 200px;
+}
+
+#img {
+    width: 500px;
+    height: 500px;
+    background-color: lightgray;
+    float: right;
+}
+
+#submit {
+    background-color: lightgray;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 150px;
+    height: 30px;
+    margin-left: 200px;
 }

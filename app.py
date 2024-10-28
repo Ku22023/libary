@@ -10,10 +10,6 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route('/newbook')
-def newbook():
-    return render_template("newbook.html")
-
 def get_db_connection():
     conn = sqlite3.connect('books.db')
     conn.row_factory = sqlite3.Row
@@ -26,53 +22,39 @@ def init_db():
     conn.close()
 
 @app.route('/newbook', methods=('GET', 'POST'))
-def add_game():
+def newbook():
     conn = get_db_connection()
-    book = conn.execute('SELECT * FROM Library').fetchone()
+    book = conn.execute('SELECT * FROM library').fetchone()
 
     if request.method == 'POST':
-        title = request.form['title']
-        author = request.form['author']
-        genre = request.form['genre']
-        category = request.form['category']
-        review = request.form['review']
-        description = request.form['description']
+        title = request.form['intitle']
+        authour = request.form['inauthour']
+        genre = request.form['ingenre']
+        dp = request.form['indop']
+        category = request.form['incategory']
+        rating = request.form['inrating']
+        description = request.form['indescription']
+#        image = request.form['img']
 
 
-        if not title or not author or not genre or not category or not review or not description:
+        if not title or not authour or not genre or not category or not dp or not rating or not description:
             flash('All fields are required!')
         else:
-            conn.execute('INSERT INTO library (id, title, platform, genre, year, sales) VALUES (id = ? title = ?, platform = ?, genre = ?, year = ?, sales = ?)',
-                (id, title, platform, genre, year, sales))
+            conn.execute('INSERT INTO library (title, authour, genre, category, published, rating, description) VALUES ( ?, ?, ?, ?, ?, ?, ?)', 
+                         ( title, authour, genre, category, dp, rating, description))
             conn.commit()
             conn.close()
             return render_template('newbook.html')
             
     return render_template('newbook.html')
 
-@app.route('/login', methods=('POST', 'GET'))
-def login():
-    if request.method == 'POST':
-        user_name = request.form['userName']
-        password = request.form['password']
-
-        if not user_name or not password: 
-            flash('All Fields required')
-        else:
-            conn = get_db_connection()
-            conn.execute('INSERT INTO users (username, password) VALUES (?,?)', (user_name, password))
-            conn.commit()
-            conn.close()
-            return redirect(url_for('index'))
-    return render_template("login.html")
-
-@app.route('/view_games', methods=('POST', 'GET'))
-def view_games():
+@app.route('/viewbooks', methods=('POST', 'GET'))
+def viewbooks():
     conn = get_db_connection()
-    sql = "SELECT * FROM games"
+    sql = "SELECT * FROM library"
     games = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('view_games.html', games=games)
+    return render_template('allbooks.html', games=games)
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_game(id):
