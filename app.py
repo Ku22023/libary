@@ -11,7 +11,7 @@ def index():
     return render_template("index.html")
 
 def get_db_connection():
-    conn = sqlite3.connect('books.db')
+    conn = sqlite3.connect('book.db')
     conn.row_factory = sqlite3.Row
     return conn
     
@@ -52,9 +52,9 @@ def newbook():
 def viewbooks():
     conn = get_db_connection()
     sql = "SELECT * FROM library"
-    games = conn.execute(sql).fetchall()
+    books = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('allbooks.html', games=games)
+    return render_template('allbooks.html', books=books)
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_game(id):
