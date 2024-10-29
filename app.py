@@ -59,7 +59,7 @@ def viewbooks():
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
 def edit_book(id):
     conn = get_db_connection()
-    games = conn.execute('SELECT * FROM library WHERE id=?', (id,)).fetchone()
+    book = conn.execute('SELECT * FROM library WHERE id=?', (id,)).fetchone()
 
     if request.method == 'POST':
         title = request.form['intitle']
@@ -84,11 +84,11 @@ def edit_book(id):
 @app.route('/delete/<int:id>', methods=('POST',))
 def delete_game(id):
     conn = get_db_connection()
-    conn.execute('DELETE FROM users WHERE id = ?', (id,))
+    conn.execute('DELETE FROM library WHERE id = ?', (id,))
     conn.commit()
     conn.close()
-    flash('User deleted successfully!')
-    return redirect(url_for('view_games.html'))
+    flash('Book deleted successfully!')
+    return redirect(url_for('allbooks.html'))
 
 if __name__ == '__main__':
     app.run(debug=True,port=7496)
