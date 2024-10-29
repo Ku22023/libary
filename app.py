@@ -30,8 +30,8 @@ def newbook():
         title = request.form['intitle']
         authour = request.form['inauthour']
         genre = request.form['ingenre']
-        dp = request.form['indop']
         category = request.form['incategory']
+        dp = request.form['indop']
         rating = request.form['inrating']
         description = request.form['indescription']
 #        image = request.form['img']
@@ -57,28 +57,29 @@ def viewbooks():
     return render_template('allbooks.html', books=books)
 
 @app.route('/edit/<int:id>', methods=('GET', 'POST'))
-def edit_game(id):
+def edit_book(id):
     conn = get_db_connection()
-    games = conn.execute('SELECT * FROM games WHERE id=?', (id,)).fetchone()
+    games = conn.execute('SELECT * FROM library WHERE id=?', (id,)).fetchone()
 
     if request.method == 'POST':
-        title = request.form['title']
-        platform = request.form['platform']
-        genre = request.form['genre']
-        year = request.form['year']
-        sales = request.form['sales']
+        title = request.form['intitle']
+        authour = request.form['inauthour']
+        genre = request.form['ingenre']
+        dp = request.form['indop']
+        category = request.form['incategory']
+        rating = request.form['inrating']
+        description = request.form['indescription']
 
-
-        if not id or not title or not platform or not genre or not year or not sales: 
+        if not id or not title or not authour or not genre or not dp or not category or not rating or not description: 
             flash('All fields are required!')
         else:
-            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, year = ?, sales = ? WHERE id = ?', 
-                (title, platform, genre, year, sales, id))
+            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, dp = ?, category = ?, rating = ?, description = ? WHERE id = ?', 
+                (title, authour, genre, dp, category, rating, description, id))
             conn.commit()
             conn.close()
-            return redirect(url_for('view_games'))
+            return redirect(url_for('viewbooks'))
             
-    return render_template('edit_user.html', games=games)
+    return render_template('edit_book.html', book=book)
 
 @app.route('/delete/<int:id>', methods=('POST',))
 def delete_game(id):

@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+<h2 id="nbheader">Edit book</h2>
+
+<form method="post">
+    <div id="image">
+<!--       <label for="image" id="image">Cover: </label> -->
+<!--       <input type="file" id="img" name="img" accept="image/*"> -->
+    </div>
+
+
+    <label for="text" class="info">Title: </label>
+        <input type="text" class="input" name="intitle" id="intitle" required><br>
+    <label for="text" class="info">Authour: </label>
+        <input type="text" class="input" name="inauthour" id="inauthour" required><br>
+    <label for="text" class="info">Genre: </label>
+        <input type="text" class="input" name="ingenre" id="ingenre" required><br>
+    <label for="text" class="info">Category: </label>
+        <input type="text" class="input" name="incategory" id="incategory" required><br>
+    <label for="text" class="info">Date Published: </label>
+        <input type="text" class="input" name="indop" id="indop" required><br>
+    <label for="text" class="info">Rating: </label>
+        <input type="text" class="input" name="inrating" id="inrating" required><br>
+    <label for="text" class="info">Description: </label>
+        <input type="text" class="input" name="indescription" id="indescription" required><br>
+    <button type="submit" id="submit">Submit</button>
+
+
+</form>
+
+
+{% endblock %}
