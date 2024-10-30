@@ -4,7 +4,10 @@ from flask import Flask, render_template, request, redirect, flash, url_for
 import random
 import sqlite3
 
+
+
 app = Flask(__name__)
+app.secret_key = "supersecretkey" 
 
 @app.route('/')
 def index():
@@ -73,7 +76,7 @@ def edit_book(id):
         if not id or not title or not authour or not genre or not dp or not category or not rating or not description: 
             flash('All fields are required!')
         else:
-            conn.execute('UPDATE games SET title = ?, platform = ?, genre = ?, dp = ?, category = ?, rating = ?, description = ? WHERE id = ?', 
+            conn.execute('UPDATE library SET title = ?, authour = ?, genre = ?, published = ?, category = ?, rating = ?, description = ? WHERE id = ?', 
                 (title, authour, genre, dp, category, rating, description, id))
             conn.commit()
             conn.close()
@@ -82,13 +85,13 @@ def edit_book(id):
     return render_template('edit_book.html', book=book)
 
 @app.route('/delete/<int:id>', methods=('POST',))
-def delete_game(id):
+def delete_book(id):
     conn = get_db_connection()
     conn.execute('DELETE FROM library WHERE id = ?', (id,))
     conn.commit()
     conn.close()
     flash('Book deleted successfully!')
-    return redirect(url_for('allbooks.html'))
+    return redirect(url_for('viewbooks'))
 
 if __name__ == '__main__':
-    app.run(debug=True,port=7496)
+    app.run(debug=True,port=7496) 
