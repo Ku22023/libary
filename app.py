@@ -48,7 +48,9 @@ def newbook():
             flash('All fields are required!')
         else:
             conn.execute('INSERT INTO library (title, authour, genre, category, published, rating, description) VALUES ( ?, ?, ?, ?, ?, ?, ?)', 
-                         (title, authour, genre, category, dp, rating, description))
+                         ( title, authour, genre, category, dp, rating, description))
+            conn.commit()
+            conn.close()
             return render_template('newbook.html')
             
     return render_template('newbook.html')
