@@ -43,6 +43,9 @@
 <div id="category">
     <h2 id="largetext">Best Reviews</h2>
     <h4 id="smalltext">Viw all...</h4>
+    {% for bestreview in bestreview %}
+        <a class="coverbg" href="{{ url_for('bookinfo', id=bestreview.id) }}" class="bookcover">{{ bestreview.title }}</a>
+    {% endfor %}
 </div>
 
 <div class="bottombar"></div>   

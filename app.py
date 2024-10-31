@@ -14,8 +14,10 @@ def index():
     conn = get_db_connection()
     sql = "SELECT * FROM library ORDER BY id DESC"
     books = conn.execute(sql).fetchall()
+    sql = "SELECT * FROM library WHERE Rating > 7 ORDER BY id DESC"
+    bestreview = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('index.html', books=books)
+    return render_template('index.html', books=books, bestreview=bestreview)
 
 def get_db_connection():
     conn = sqlite3.connect('book.db')
@@ -51,7 +53,7 @@ def newbook():
                          ( title, authour, genre, category, dp, rating, description))
             conn.commit()
             conn.close()
-            return render_template('newbook.html')
+        return redirect(index())
             
     return render_template('newbook.html')
 
@@ -93,10 +95,8 @@ def delete_book(id):
     conn = get_db_connection()
     conn.execute('DELETE FROM library WHERE id = ?', (id,))
     conn.commit()
-    sql = "SELECT * FROM library ORDER BY id DESC"
-    books = conn.execute(sql).fetchall()
     conn.close()
-    return render_template('index.html', books=books)
+    return redirect(index())
 
 @app.route('/bookinfo/<int:id>', methods=('GET', 'POST'))
 def bookinfo(id):
