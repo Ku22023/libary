@@ -45,7 +45,7 @@
     padding-left: 20px;
     text-decoration: none;
     font-weight: bold;
-    font-size: large                                ;
+    font-size: large;
       
 }
 
@@ -81,6 +81,16 @@
     overflow: visible; 
 }
   
+.coverbg {
+    height: 220px;
+    width: 150px;
+    margin-left: 50px;
+    float: left;
+    background: lightgray;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
 
 
 #banner {
@@ -196,4 +206,95 @@
 #viewbooks {
     border-color: black;
     border: 100px;
+}
+
+#booktitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    font-size: 50px;
+}
+
+#bookinfo {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+#infoauthour {
+    text-align: center;
+}
+
+#infogenre {
+    background-color: lightgray;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 250px;
+    height: 40px;
+    margin-left: 450px;
+    float: left;
+}
+
+#infocate {
+    background-color: lightgray;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    width: 250px;
+    height: 40px;
+    margin-left: 40px;
+    float: left;
+}
+
+
+#infoimage {
+    background-color: lightgray;
+    width: 300px;
+    float: right;
+    height: 500px;
+    margin-right: 50px;
+}
+
+#infodop {
+    float: right;
+    position: absolute;
+    right: 400px;
+    top: 250px;
+}
+
+#inforeview {
+    right: 400px;
+    top: 210px;
+    position: absolute;
+    float: right;
+}
+
+#infodesc {
+    margin-left: 30px;
+    float: left;
+    margin-top: 100px;
+    width: 1000px;
+}
+
+.editbookbutton {
+    float: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 160px;
+    height: 40px;
+    padding-top: 20px;
+    background-color: lightgray;
+    text-decoration: none;
+    color: blue;
+}
+
+.deletebookbutton {
+    float: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    width: 160px;
+    height: 40px;
+    padding-top: 20px;
+    background-color: lightgray;
+    text-decoration: none;
+    color: red;
 }

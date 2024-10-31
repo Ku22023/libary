@@ -11,7 +11,11 @@ app.secret_key = "supersecretkey"
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    conn = get_db_connection()
+    sql = "SELECT * FROM library ORDER BY id DESC"
+    books = conn.execute(sql).fetchall()
+    conn.close()
+    return render_template('index.html', books=books)
 
 def get_db_connection():
     conn = sqlite3.connect('book.db')
@@ -45,9 +49,10 @@ def newbook():
         else:
             conn.execute('INSERT INTO library (title, authour, genre, category, published, rating, description) VALUES ( ?, ?, ?, ?, ?, ?, ?)', 
                          ( title, authour, genre, category, dp, rating, description))
-            conn.commit()
+            sql = "SELECT * FROM library ORDER BY id DESC"
+            books = conn.execute(sql).fetchall()
             conn.close()
-            return render_template('newbook.html')
+            return render_template('index.html', books=books)
             
     return render_template('newbook.html')
 
@@ -80,18 +85,27 @@ def edit_book(id):
                 (title, authour, genre, dp, category, rating, description, id))
             conn.commit()
             conn.close()
-            return redirect(url_for('viewbooks'))
+            return redirect(url_for('bookinfo', id=id))
             
     return render_template('edit_book.html', book=book)
 
-@app.route('/delete/<int:id>', methods=('POST',))
+@app.route('/delete/<int:id>', methods=('POST', 'GET'))
 def delete_book(id):
     conn = get_db_connection()
     conn.execute('DELETE FROM library WHERE id = ?', (id,))
     conn.commit()
+    sql = "SELECT * FROM library ORDER BY id DESC"
+    books = conn.execute(sql).fetchall()
     conn.close()
-    flash('Book deleted successfully!')
-    return redirect(url_for('viewbooks'))
+    return render_template('index.html', books=books)
 
-if __name__ == '__main__':
+@app.route('/bookinfo/<int:id>', methods=('GET', 'POST'))
+def bookinfo(id):
+    conn = get_db_connection()
+    book = conn.execute('SELECT * FROM library WHERE id = ?', (id,)).fetchone()
+    conn.close()
+    return render_template('bookinfo.html', book=book)
+
+
+if __name__ == '__main__':  
     app.run(debug=True,port=7496) 

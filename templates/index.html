@@ -31,8 +31,11 @@
 
 
 <div id="category">
-    <h2 id="largetext">Editors Picks</h2>
+    <h2 id="largetext">New Books</h2>
     <h4 id="smalltext">View all...</h4>
+    {% for books in books %}
+        <a class="coverbg" href="{{ url_for('bookinfo', id=books.id) }}" class="bookcover">{{ books.title }}</a>
+    {% endfor %}
 </div>
  
 <div class="bottombar"></div>   
