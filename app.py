@@ -48,11 +48,8 @@ def newbook():
             flash('All fields are required!')
         else:
             conn.execute('INSERT INTO library (title, authour, genre, category, published, rating, description) VALUES ( ?, ?, ?, ?, ?, ?, ?)', 
-                         ( title, authour, genre, category, dp, rating, description))
-            sql = "SELECT * FROM library ORDER BY id DESC"
-            books = conn.execute(sql).fetchall()
-            conn.close()
-            return render_template('index.html', books=books)
+                         (title, authour, genre, category, dp, rating, description))
+            return render_template('newbook.html')
             
     return render_template('newbook.html')
 
