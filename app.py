@@ -53,7 +53,7 @@ def newbook():
                          ( title, authour, genre, category, dp, rating, description))
             conn.commit()
             conn.close()
-        return redirect(index())
+        return redirect (url_for('index'))
             
     return render_template('newbook.html')
 
@@ -96,7 +96,7 @@ def delete_book(id):
     conn.execute('DELETE FROM library WHERE id = ?', (id,))
     conn.commit()
     conn.close()
-    return redirect(index())
+    return redirect(url_for('index'))
 
 @app.route('/bookinfo/<int:id>', methods=('GET', 'POST'))
 def bookinfo(id):
@@ -105,6 +105,13 @@ def bookinfo(id):
     conn.close()
     return render_template('bookinfo.html', book=book)
 
+@app.route('/search')
+def search():
+    conn = get_db_connection()
+    sql = "SELECT * FROM library ORDER BY title ASC"
+    books = conn.execute(sql).fetchall()
+    conn.close()
+    return render_template('search.html', books=books)
 
 if __name__ == '__main__':  
     app.run(debug=True,port=7496) 

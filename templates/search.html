@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+
+
+
+{% block body %}
+
+
+<div id="banner">
+    <h4 class="bannertext">Libraria:</h4>  
+    <h4 class="bannertext">The Worlds best book Database</h4>
+</div>
+
+
+<div class="bottombar"></div>
+
+{% for books in books %}
+<a class="coverbg" href="{{ url_for('bookinfo', id=books.id) }}" class="bookcover" >{{ books.title }}</a>
+{% endfor %}
+
+{% endblock %}
