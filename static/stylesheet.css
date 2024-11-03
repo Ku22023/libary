@@ -85,11 +85,13 @@
     height: 220px;
     width: 150px;
     margin-left: 50px;
+    margin-top: 20px;
     float: left;
     background: lightgray;
     text-align: center;
     text-decoration: none;
     color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 
